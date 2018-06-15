@@ -1,0 +1,11 @@
+name: RufixHD-KillCoins
+main: net.spieloase.rufixhd.killcoins.killcoins
+version: 1.0
+author: RufixHD
+
+commands:
+   differenz:
+   punkte:
+   resetpoints:
+   set:
+   rpa:

@@ -1,0 +1,26 @@
+ #######################################
+ #   _  ___ _ _           _            #
+ #  | |/ (_) | |         (_)           #
+ #  | ' / _| | | ___ ___  _ _ __  ___  #
+ #  |  < | | | |/ __/ _ \| | '_ \/ __| #
+ #  | . \| | | | (_| (_) | | | | \__ \ #
+ #  |_|\_\_|_|_|\___\___/|_|_| |_|___/ #
+ #                    by RufixHD       #
+ #######################################
+
+ #Hier kannst du einstellen wie viel Coins die Spieler beim töten von Kühen bekommen sollen.
+ Kühekillcoins: '5'
+
+ #Hier kannst du einstellen wie viel Coins die Spieler beim töten von Spielern bekommen sollen.
+ Spielerkillcoins: '10'
+
+ #Hier kannst du einstellen wie viel Coins dem Opfer prozentual abgezogen werde wollen.
+ Spielerprozentremove: '40'
+
+ #Hier kannst du die MySQL Datenbankdaten angeben.
+ MySQL:
+   DBname:
+   DBhost:
+   DBport:
+   DBuser:
+   DBpass:
