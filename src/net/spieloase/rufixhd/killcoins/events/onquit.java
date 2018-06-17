@@ -1,7 +1,7 @@
 package net.spieloase.rufixhd.killcoins.events;
 
 import net.spieloase.rufixhd.killcoins.killcoins;
-import net.spieloase.rufixhd.killcoins.mysql.mysqlmethoden;
+import net.spieloase.rufixhd.killcoins.methoden.mysql.methoden;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,8 +14,8 @@ public class onquit implements Listener {
 
         //Die erspielten Coins in die Datenbank eintragen
         if (killcoins.HMCoins.containsKey(p.getUniqueId())) {
-            Integer newCoins = killcoins.HMCoins.get(p.getUniqueId());
-            mysqlmethoden.setCoins(p, newCoins);
+            Integer Coins = killcoins.HMCoins.get(p.getUniqueId());
+            methoden.setCoins(p, Coins);
         }
     }
 }

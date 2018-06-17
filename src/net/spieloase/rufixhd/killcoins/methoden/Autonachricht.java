@@ -13,17 +13,17 @@ public class Autonachricht {
             @Override
             public void run() {
                 for (Player all : Bukkit.getOnlinePlayers()) {
-                    Integer CoinsSelf = killcoins.HMCoins.get(all.getUniqueId());
+                    Integer CoinsS = killcoins.HMCoins.get(all.getUniqueId());
 
                     //Abfragen ob es eine ungerade oder gerade Zahl ist
-                    if (CoinsSelf % 2 == 0) {
-                        all.sendMessage(killcoins.prefix + "Du hast §c" + CoinsSelf + " §7Coins§8!");
-                    } else if (CoinsSelf % 2 == 1) {
-                        Title.sendTitle(all, " ", "§7Du hast §c" + CoinsSelf + " §7Coins§8!");
+                    if (CoinsS % 2 == 0) {
+                        all.sendMessage(killcoins.prefix + "Du hast §c" + CoinsS + " §7Coins§8!");
+                    } else if (CoinsS % 2 == 1) {
+                        Title.sendTitle(all, "§7Du hast §c" + CoinsS + " §7Coins§8!");
                     }
                 }
             }
-        }.runTaskTimer(killcoins.getInstance(), 0, 12000);
+        }.runTaskTimerAsynchronously(killcoins.getInstance(), 0, 12000);
     }
 }
 

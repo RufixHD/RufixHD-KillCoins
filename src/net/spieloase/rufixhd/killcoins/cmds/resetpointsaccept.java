@@ -1,4 +1,4 @@
-package net.spieloase.rufixhd.killcoins.commands;
+package net.spieloase.rufixhd.killcoins.cmds;
 
 import net.spieloase.rufixhd.killcoins.killcoins;
 import org.bukkit.command.Command;

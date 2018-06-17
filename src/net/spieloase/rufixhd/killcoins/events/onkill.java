@@ -15,33 +15,33 @@ public class onkill implements Listener {
         if (killer instanceof Player) {
             if (e.getEntity().getType() == EntityType.COW || e.getEntity() instanceof Player) {
                 if (e.getEntity() instanceof Player) {
-                    Integer Coinskiller = killcoins.HMCoins.get(killer.getUniqueId());
-                    Integer Coinsdeath = killcoins.HMCoins.get(e.getEntity().getUniqueId());
-                    Integer Spielerkillcoins = killcoins.getInstance().getConfig().getInt("Spielerkillcoins");
-                    Integer SpielerOpferremove = killcoins.getInstance().getConfig().getInt("SpielerOpferremove");
-                    Integer newCoinskillerplayer = Coinskiller + Spielerkillcoins;
+                    Integer kcoins = killcoins.HMCoins.get(killer.getUniqueId());
+                    Integer dcoins = killcoins.HMCoins.get(e.getEntity().getUniqueId());
+                    Integer add = killcoins.getInstance().getConfig().getInt("Spieleraddcoins");
+                    Integer remove = killcoins.getInstance().getConfig().getInt("Spielerremoveprozent");
+                    Integer kcoinsnew = kcoins + add;
                     Integer Prozent;
 
                     //Berechnung Prozentualeranteil
-                    if (SpielerOpferremove >= 100) {
-                        Prozent = SpielerOpferremove;
+                    if (remove >= 100) {
+                        Prozent = remove;
                     } else {
-                        Prozent = SpielerOpferremove / 100;
+                        Prozent = remove / 100;
                     }
-                    Integer newCoinsdeathplayer = Coinsdeath * Prozent;
+                    Integer newCoinsdeathplayer = dcoins * Prozent;
 
                     //Dem Killer Coins hinzufügen un dem Opfer die Coins prozentual entfernen
-                    killcoins.HMCoins.put(killer.getUniqueId(), newCoinskillerplayer);
+                    killcoins.HMCoins.put(killer.getUniqueId(), kcoinsnew);
                     killcoins.HMCoins.put(e.getEntity().getUniqueId(), newCoinsdeathplayer);
-                    killer.sendMessage(killcoins.prefix + "Du hast für das töten von §c" + e.getEntity().getName() + " §6" + Spielerkillcoins + " §7Coins erhalten§8!");
+                    killer.sendMessage(killcoins.prefix + "Du hast für das töten von §c" + e.getEntity().getName() + " §6" + add + " §7Coins erhalten§8!");
                 } else if (e.getEntity().getType().equals(EntityType.COW)) {
-                    Integer Coinskiller = killcoins.HMCoins.get(killer.getUniqueId());
-                    Integer Kühekillcoins = killcoins.getInstance().getConfig().getInt("Kühekillcoins");
-                    Integer newCoinskillerkühe = Coinskiller + Kühekillcoins;
+                    Integer kcoins = killcoins.HMCoins.get(killer.getUniqueId());
+                    Integer kkcoins = killcoins.getInstance().getConfig().getInt("Kühekillcoins");
+                    Integer kcoinsnew = kcoins + kkcoins;
 
                     //Dem Killer Coins hinzufügen
-                    killcoins.HMCoins.put(killer.getUniqueId(), newCoinskillerkühe);
-                    killer.sendMessage(killcoins.prefix + "Du hast für das töten von einer §cKuh §6" + Kühekillcoins + " §7Coins erhalten§8!");
+                    killcoins.HMCoins.put(killer.getUniqueId(), kcoinsnew);
+                    killer.sendMessage(killcoins.prefix + "Du hast für das töten von einer §cKuh §6" + kkcoins + " §7Coins erhalten§8!");
                 }
             }
         }

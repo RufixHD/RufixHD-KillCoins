@@ -1,14 +1,13 @@
 package net.spieloase.rufixhd.killcoins;
 
-import net.spieloase.rufixhd.killcoins.commands.*;
+import net.spieloase.rufixhd.killcoins.cmds.*;
 import net.spieloase.rufixhd.killcoins.events.onjoin;
 import net.spieloase.rufixhd.killcoins.events.onkill;
 import net.spieloase.rufixhd.killcoins.events.onquit;
 import net.spieloase.rufixhd.killcoins.methoden.Autonachricht;
-import net.spieloase.rufixhd.killcoins.mysql.mysqlmethoden;
+import net.spieloase.rufixhd.killcoins.methoden.mysql.methoden;
 import net.spieloase.rufixhd.killcoins.scoreboard.setScoreboard;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -29,8 +28,6 @@ public class killcoins extends JavaPlugin implements Listener{
 
         //EventClassregister vereinfachen
         PluginManager re = Bukkit.getServer().getPluginManager();
-
-        FileConfiguration config = this.getConfig();
 
         //EventClass registrieren
         re.registerEvents(this, this);
@@ -54,8 +51,8 @@ public class killcoins extends JavaPlugin implements Listener{
         saveDefaultConfig();
 
         //Datenbank verbinden und erstellen, wenn nicht vorhanden
-        mysqlmethoden.connect();
-        mysqlmethoden.createTable();
+        methoden.connect();
+        methoden.createTable();
 
         //Start Scoreboardupdater
         setScoreboard.updateBoard();
@@ -71,13 +68,13 @@ public class killcoins extends JavaPlugin implements Listener{
 
         for(Player all : Bukkit.getOnlinePlayers()){
             if (killcoins.HMCoins.containsKey(all.getUniqueId())) {
-                Integer newCoins = killcoins.HMCoins.get(all.getUniqueId());
+                Integer coinsnew = killcoins.HMCoins.get(all.getUniqueId());
 
-                mysqlmethoden.setCoins(all, newCoins);
+                methoden.setCoins(all, coinsnew);
             }
         }
         //Datenbank trennen
-        mysqlmethoden.disconnect();
+        methoden.disconnect();
     }
 
     public static killcoins getInstance() {

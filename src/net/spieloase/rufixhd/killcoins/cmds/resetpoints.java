@@ -1,4 +1,4 @@
-package net.spieloase.rufixhd.killcoins.commands;
+package net.spieloase.rufixhd.killcoins.cmds;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
