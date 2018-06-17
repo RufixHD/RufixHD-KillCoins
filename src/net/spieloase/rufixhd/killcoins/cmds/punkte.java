@@ -1,4 +1,4 @@
-package net.spieloase.rufixhd.killcoins.commands;
+package net.spieloase.rufixhd.killcoins.cmds;
 
 import net.spieloase.rufixhd.killcoins.killcoins;
 import org.bukkit.command.Command;
@@ -12,9 +12,9 @@ public class punkte implements CommandExecutor{
         Player p = (Player) sender;
 
         //Abfrage wie viele Coins der Spieler hat
-        Integer CoinsSelf = killcoins.HMCoins.get(p.getUniqueId());
+        Integer CoinsS = killcoins.HMCoins.get(p.getUniqueId());
 
-        p.sendMessage(killcoins.prefix + "Du hast §c" + CoinsSelf + " §7Coins§8!");
+        p.sendMessage(killcoins.prefix + "Du hast §c" + CoinsS + " §7Coins§8!");
         return false;
     }
 }
